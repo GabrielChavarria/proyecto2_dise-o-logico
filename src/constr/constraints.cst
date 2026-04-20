@@ -1,0 +1,36 @@
+// ============== CONFIGURACIÓN DE PINES ORDENADA (VERSIÓN FINAL) ==============
+// Basado en el esquemático oficial y la prueba de reset exitosa
+
+// --- PINES FIJOS DE LA PLACA ---
+IO_LOC "clk_27mhz" 52; // Reloj de 27MHz
+
+// --- GRUPO SUPERIOR: SALIDAS AL DISPLAY (12 PINES) ---
+IO_LOC "segmentos_out[0]" 86; // Segmento a
+IO_LOC "segmentos_out[1]" 85; // Segmento b
+IO_LOC "segmentos_out[2]" 84; // Segmento c
+IO_LOC "segmentos_out[3]" 83; // Segmento d
+IO_LOC "segmentos_out[4]" 82; // Segmento e
+IO_LOC "segmentos_out[5]" 81; // Segmento f
+IO_LOC "segmentos_out[6]" 80; // Segmento g
+IO_LOC "segmentos_out[7]" 79; // Punto Decimal (dp)
+IO_LOC "anodos_out[0]" 77; // Control Dígito 1
+IO_LOC "anodos_out[1]" 76; // Control Dígito 2
+IO_LOC "anodos_out[2]" 75; // Control Dígito 3
+IO_LOC "anodos_out[3]" 74; // Control Dígito 4
+
+// --- GRUPO INFERIOR: E/S DEL TECLADO Y RESET (9 PINES) ---
+// Columnas (Salidas)
+IO_LOC "keypad_cols[0]" 38; // Columna 1
+IO_LOC "keypad_cols[1]" 37; // Columna 2
+IO_LOC "keypad_cols[2]" 36; // Columna 3
+IO_LOC "keypad_cols[3]" 39; // Columna 4
+
+// Filas (Entradas)
+IO_LOC "keypad_rows[0]" 40; // Fila 1
+IO_LOC "keypad_rows[1]" 41; // Fila 2
+IO_LOC "keypad_rows[2]" 51; // Fila 3
+IO_LOC "keypad_rows[3]" 53; // Fila 4
+
+// Pin de Reset (Entrada)
+IO_LOC "reset_n"   54; // RESET OFICIAL
+IO_PULL "reset_n" "PULL_UP"; // Habilita Pull-up interno
