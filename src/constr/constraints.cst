@@ -1,22 +1,23 @@
 // ============== CONFIGURACIÓN DE PINES ORDENADA (VERSIÓN FINAL) ==============
 // Basado en el esquemático oficial y la prueba de reset exitosa
+// Display movido al banco IOB (3.3V) para evitar transistores
 
 // --- PINES FIJOS DE LA PLACA ---
 IO_LOC "clk_27mhz" 52; // Reloj de 27MHz
 
-// --- GRUPO SUPERIOR: SALIDAS AL DISPLAY (12 PINES) ---
-IO_LOC "segmentos_out[0]" 86; // Segmento a
-IO_LOC "segmentos_out[1]" 85; // Segmento b
-IO_LOC "segmentos_out[2]" 84; // Segmento c
-IO_LOC "segmentos_out[3]" 83; // Segmento d
-IO_LOC "segmentos_out[4]" 82; // Segmento e
-IO_LOC "segmentos_out[5]" 81; // Segmento f
-IO_LOC "segmentos_out[6]" 80; // Segmento g
-IO_LOC "segmentos_out[7]" 79; // Punto Decimal (dp)
-IO_LOC "anodos_out[0]" 77; // Control Dígito 1
-IO_LOC "anodos_out[1]" 76; // Control Dígito 2
-IO_LOC "anodos_out[2]" 75; // Control Dígito 3
-IO_LOC "anodos_out[3]" 74; // Control Dígito 4
+// --- DISPLAY: BANCO IOB 3.3V (12 PINES) ---
+IO_LOC "segmentos_out[0]" 25; // Segmento a (IOB8A)
+IO_LOC "segmentos_out[1]" 26; // Segmento b (IOB8B)
+IO_LOC "segmentos_out[2]" 27; // Segmento c (IOB11A)
+IO_LOC "segmentos_out[3]" 28; // Segmento d (IOB11B)
+IO_LOC "segmentos_out[4]" 29; // Segmento e (IOB13A)
+IO_LOC "segmentos_out[5]" 30; // Segmento f (IOB13B)
+IO_LOC "segmentos_out[6]" 33; // Segmento g (IOB23A)
+IO_LOC "segmentos_out[7]" 34; // Punto Decimal (IOB23B)
+IO_LOC "anodos_out[0]"    35; // Control Dígito 1 (IOB29A)
+IO_LOC "anodos_out[1]"    42; // Control Dígito 2 (IOB41B)
+IO_LOC "anodos_out[2]"    55; // Control Dígito 3 (IOR14B)
+IO_LOC "anodos_out[3]"    56; // Control Dígito 4 (IOR14A)
 
 // --- GRUPO INFERIOR: E/S DEL TECLADO Y RESET (9 PINES) ---
 // Columnas (Salidas)
