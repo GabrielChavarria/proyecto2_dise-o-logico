@@ -1,37 +1,38 @@
-// ============== CONFIGURACIÓN DE PINES ORDENADA (VERSIÓN FINAL) ==============
-// Basado en el esquemático oficial y la prueba de reset exitosa
-// Display movido al banco IOB (3.3V) para evitar transistores
+// ============== CONFIGURACIÓN DE PINES (VERSIÓN FINAL) ==============
+// Display en banco IOB/IOR (3.3V) - sin transistores
+// Reset usa botón S1 integrado en la TangNano (pin 88)
 
-// --- PINES FIJOS DE LA PLACA ---
-IO_LOC "clk_27mhz" 52; // Reloj de 27MHz
+// --- RELOJ ---
+IO_LOC "clk_27mhz" 52;          // Reloj interno 27MHz
 
-// --- DISPLAY: BANCO IOB 3.3V (12 PINES) ---
-IO_LOC "segmentos_out[0]" 25; // Segmento a (IOB8A)
-IO_LOC "segmentos_out[1]" 26; // Segmento b (IOB8B)
-IO_LOC "segmentos_out[2]" 27; // Segmento c (IOB11A)
-IO_LOC "segmentos_out[3]" 28; // Segmento d (IOB11B)
-IO_LOC "segmentos_out[4]" 29; // Segmento e (IOB13A)
-IO_LOC "segmentos_out[5]" 30; // Segmento f (IOB13B)
-IO_LOC "segmentos_out[6]" 33; // Segmento g (IOB23A)
-IO_LOC "segmentos_out[7]" 34; // Punto Decimal (IOB23B)
-IO_LOC "anodos_out[0]"    35; // Control Dígito 1 (IOB29A)
-IO_LOC "anodos_out[1]"    42; // Control Dígito 2 (IOB41B)
-IO_LOC "anodos_out[2]"    55; // Control Dígito 3 (IOR14B)
-IO_LOC "anodos_out[3]"    56; // Control Dígito 4 (IOR14A)
+// --- DISPLAY: SEGMENTOS (con resistencia 150Ω) ---
+IO_LOC "segmentos_out[0]" 37;   // Segmento a → display pin 11
+IO_LOC "segmentos_out[1]" 39;   // Segmento b → display pin 7
+IO_LOC "segmentos_out[2]" 29;   // Segmento c → display pin 4
+IO_LOC "segmentos_out[3]" 28;   // Segmento d → display pin 2
+IO_LOC "segmentos_out[4]" 27;   // Segmento e → display pin 1
+IO_LOC "segmentos_out[5]" 36;   // Segmento f → display pin 10
+IO_LOC "segmentos_out[6]" 30;   // Segmento g → display pin 5
+IO_LOC "segmentos_out[7]" 34;   // Punto decimal (apagado)
 
-// --- GRUPO INFERIOR: E/S DEL TECLADO Y RESET (9 PINES) ---
-// Columnas (Salidas)
-IO_LOC "keypad_cols[0]" 38; // Columna 1
-IO_LOC "keypad_cols[1]" 37; // Columna 2
-IO_LOC "keypad_cols[2]" 36; // Columna 3
-IO_LOC "keypad_cols[3]" 39; // Columna 4
+// --- DISPLAY: ÁNODOS (sin resistencia) ---
+IO_LOC "anodos_out[0]" 38;      // Ánodo dígito 1 → display pin 12
+IO_LOC "anodos_out[1]" 25;      // Ánodo dígito 2 → display pin 9
+IO_LOC "anodos_out[2]" 26;      // Ánodo dígito 3 → display pin 8
+IO_LOC "anodos_out[3]" 33;      // Ánodo dígito 4 → display pin 6
 
-// Filas (Entradas)
-IO_LOC "keypad_rows[0]" 40; // Fila 1
-IO_LOC "keypad_rows[1]" 41; // Fila 2
-IO_LOC "keypad_rows[2]" 51; // Fila 3
-IO_LOC "keypad_rows[3]" 53; // Fila 4
+// --- TECLADO: COLUMNAS (salidas, sin resistencia) ---
+IO_LOC "keypad_cols[0]" 55;     // Columna 1 → terminal 5
+IO_LOC "keypad_cols[1]" 54;     // Columna 2 → terminal 6
+IO_LOC "keypad_cols[2]" 53;     // Columna 3 → terminal 7
+IO_LOC "keypad_cols[3]" 51;     // Columna 4 → terminal 8
 
-// Pin de Reset (Entrada)
-IO_LOC "reset_n"   54; // RESET OFICIAL
-IO_PULL "reset_n" "PULL_UP"; // Habilita Pull-up interno
+// --- TECLADO: FILAS (entradas, con pull-up 10kΩ a 3.3V) ---
+IO_LOC "keypad_rows[0]" 69;     // Fila 1 → terminal 1
+IO_LOC "keypad_rows[1]" 68;     // Fila 2 → terminal 2
+IO_LOC "keypad_rows[2]" 57;     // Fila 3 → terminal 3
+IO_LOC "keypad_rows[3]" 56;     // Fila 4 → terminal 4
+
+// --- RESET: botón S1 integrado en TangNano ---
+IO_LOC "reset_n" 88;
+IO_PULL "reset_n" "PULL_UP";
