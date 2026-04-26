@@ -59,5 +59,10 @@ wv: ${VCD_FILE}
 load: ${PROYECT}_${BOARD}.fs
 	openFPGALoader -b ${BOARD} ${PROYECT}_${BOARD}.fs 
 
-.PHONY: load  wv
+# Limpiar archivos generados
+clean:
+	-del /Q /F *.json *.fs *.o *.vcd *.log *.history 2>nul
+	-rm -f nul
+
+.PHONY: load wv clean
 .INTERMEDIATE: ${PROYECT}_pnr.json ${PROYECT}.json
