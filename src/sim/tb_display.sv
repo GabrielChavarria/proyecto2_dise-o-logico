@@ -51,7 +51,7 @@ module tb_display;
         $finish;
     end
 
-    // monitorear cada cambio de anodo
+    // monitorear cada cambio de catodo (activo en bajo)
     always @(anodos_out) begin
         mostrar_estado();
     end
