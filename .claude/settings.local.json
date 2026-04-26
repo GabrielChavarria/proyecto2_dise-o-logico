@@ -1,8 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(export PATH=\"/c/Users/chava/Downloads/oss-cad-suite/lib:$PATH\")",
-      "Bash(make test *)"
-    ]
-  }
-}

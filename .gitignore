@@ -1,0 +1,11 @@
+# Claude Code
+.claude/
+
+# Archivos generados por la síntesis
+src/build/*.json
+src/build/*.fs
+src/build/*.o
+src/build/*.vcd
+src/build/*.log
+src/build/*.history
+src/build/nul
