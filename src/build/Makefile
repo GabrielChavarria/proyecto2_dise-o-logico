@@ -13,7 +13,8 @@ PROYECT = proyecto2
 SOURCES := $(wildcard ../design/*.sv)
 
 #Fuente de simulacion
-TESTBENCH = ../sim/tb_display.sv
+#TESTBENCH = ../sim/tb_display.sv
+TESTBENCH = ../sim/tb_debounce.sv
 
 # Constraints para el proyecto
 CONSTRAINTS = ../constr/constraints.cst
@@ -21,10 +22,12 @@ CONSTRAINTS = ../constr/constraints.cst
 #el top se indica sin la extension .v, esto hace referencia al nombre que le pusieron al módulo y no al archivo en si.
 TOP_DESIGN = top
 
-TOP_TB = tb_display
+#TOP_TB = tb_display
+TOP_TB = tb_debounce
 
 #nombre del vcd que va a generar el tb
-VCD_FILE = tb_display.vcd
+#VCD_FILE = tb_display.vcd
+VCD_FILE = tb_debounce.vcd
 
 all: synth pnr bitstream load
 

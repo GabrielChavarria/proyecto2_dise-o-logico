@@ -1,16 +1,16 @@
 module sincronizador #(
-    parameter BITS = 4  // numero de señales a sincronizar
+    parameter BITS = 4
 )(
     input  logic             clk,
-    input  logic [BITS-1:0]  señal_async,  // señales del teclado sin sincronizar
-    output logic [BITS-1:0]  señal_sync    // señales sincronizadas al reloj
+    input  logic [BITS-1:0]  senal_async,
+    output logic [BITS-1:0]  senal_sync
 );
 
-    logic [BITS-1:0] ff1;  // primer flip-flop
+    logic [BITS-1:0] ff1;
 
     always_ff @(posedge clk) begin
-        ff1        <= señal_async;  // primer FF: puede quedar metaestable
-        señal_sync <= ff1;          // segundo FF: ya estabilizado
+        ff1        <= senal_async;
+        senal_sync <= ff1;
     end
 
 endmodule
