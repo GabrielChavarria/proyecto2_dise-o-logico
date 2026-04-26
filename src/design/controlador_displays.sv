@@ -9,6 +9,13 @@ module controlador_displays (
 
     logic [1:0] digito_activo;
     logic [3:0] bcd_actual;
+    logic [3:0] digitos [0:3];
+
+    // separar los 4 digitos BCD
+    assign digitos[0] = numero[15:12];
+    assign digitos[1] = numero[11:8];
+    assign digitos[2] = numero[7:4];
+    assign digitos[3] = numero[3:0];
 
     // contador de digito activo
     always_ff @(posedge clk or negedge rst_n) begin
@@ -19,15 +26,7 @@ module controlador_displays (
     end
 
     // seleccion del digito BCD a mostrar
-    always_comb begin
-        case (digito_activo)
-            2'd0: bcd_actual = numero[15:12]; // digito izquierda
-            2'd1: bcd_actual = numero[11:8];
-            2'd2: bcd_actual = numero[7:4];
-            2'd3: bcd_actual = numero[3:0];   // digito derecha
-            default: bcd_actual = 4'd0;
-        endcase
-    end
+    assign bcd_actual = digitos[digito_activo];
 
     // activacion del catodo correspondiente (activo en bajo para catodo comun)
     always_comb begin
