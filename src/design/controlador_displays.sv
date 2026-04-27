@@ -1,7 +1,7 @@
 module controlador_displays (
     input  logic        clk,
     input  logic        rst_n,
-    input  logic        pulso,        // enable de 1kHz del divisor_frecuencia
+    input  logic        pulso,        // a 1kHz del divisor_frecuencia
     input  logic [15:0] numero,       // {digito3, digito2, digito1, digito0} en BCD
     output logic [6:0]  segmentos,    // {g,f,e,d,c,b,a} al display
     output logic [3:0]  anodos        // un bit por digito, activo en bajo (catodo comun)
