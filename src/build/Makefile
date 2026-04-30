@@ -14,6 +14,7 @@ SOURCES := $(wildcard ../design/*.sv)
 
 #Fuente de simulacion
 TESTBENCH = ../sim/tb_display.sv
+
 #TESTBENCH = ../sim/tb_debounce.sv
 
 # Constraints para el proyecto
