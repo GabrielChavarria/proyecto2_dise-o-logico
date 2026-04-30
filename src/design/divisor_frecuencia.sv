@@ -1,13 +1,11 @@
 module divisor_frecuencia #(
-    parameter N = 27000  // divide 27MHz entre N -> 1kHz por defecto
+    parameter N = 27000
 )(
     input  logic clk,
     input  logic rst_n,
     output logic pulso
 );
-
     logic [$clog2(N)-1:0] contador;
-
     always_ff @(posedge clk or negedge rst_n) begin
         if (!rst_n) begin
             contador <= '0;
@@ -20,5 +18,4 @@ module divisor_frecuencia #(
             pulso    <= 1'b0;
         end
     end
-
 endmodule
