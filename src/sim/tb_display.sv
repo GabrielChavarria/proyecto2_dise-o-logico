@@ -1,26 +1,39 @@
 module tb_display;
 
     logic        clk;
-    logic        reset_n;
-    logic [7:0]  segmentos_out;
-    logic [3:0]  anodos_out;
+    logic        rst_n;
+    logic        pulso;
+    logic [6:0]  segmentos;
+    logic [3:0]  anodos;
 
-    // instancia del top
-    top dut (
-        .clk_27mhz    (clk),
-        .reset_n      (reset_n),
-        .segmentos_out(segmentos_out),
-        .anodos_out   (anodos_out)
+    // numero hardcodeado para prueba: 1234
+    localparam logic [15:0] NUMERO = {4'd1, 4'd2, 4'd3, 4'd4};
+
+    // instancia divisor de frecuencia
+    divisor_frecuencia #(.N(27000)) div (
+        .clk  (clk),
+        .rst_n(rst_n),
+        .pulso(pulso)
     );
 
-    // reloj de 27MHz -> periodo de 37ns
+    // instancia controlador de displays
+    controlador_displays ctrl (
+        .clk      (clk),
+        .rst_n    (rst_n),
+        .pulso    (pulso),
+        .numero   (NUMERO),
+        .segmentos(segmentos),
+        .anodos   (anodos)
+    );
+
+    // reloj 27MHz -> periodo 37ns
     initial clk = 0;
     always #18.5 clk = ~clk;
 
-    // tarea para imprimir el estado actual
+    // tarea para mostrar el digito activo
     task mostrar_estado;
         string seg_str;
-        case (segmentos_out[6:0])
+        case (segmentos)
             7'b0111111: seg_str = "0";
             7'b0000110: seg_str = "1";
             7'b1011011: seg_str = "2";
@@ -34,25 +47,25 @@ module tb_display;
             default:    seg_str = "?";
         endcase
         $display("t=%0t | anodos=%b | segmentos=%b | digito=%s",
-                  $time, anodos_out, segmentos_out[6:0], seg_str);
+                  $time, anodos, segmentos, seg_str);
     endtask
 
     initial begin
-        // reset inicial
-        reset_n = 0;
-        repeat(5) @(posedge clk);
-        reset_n = 1;
+        $dumpfile("tb_display.vcd");
+        $dumpvars(0, tb_display);
 
-        // esperar suficientes ciclos para ver los 4 digitos refrescarse
-        // 1kHz = un cambio cada 27000 ciclos, 4 digitos = 108000 ciclos
-        repeat(120000) @(posedge clk);
+        rst_n = 0;
+        repeat(5) @(posedge clk);
+        rst_n = 1;
+
+        repeat(450000) @(posedge clk);
 
         $display("--- Simulacion completada ---");
         $finish;
     end
 
-    // monitorear cada cambio de catodo (activo en bajo)
-    always @(anodos_out) begin
+    // monitorear cambios en anodos
+    always @(anodos) begin
         mostrar_estado();
     end
 
