@@ -1,5 +1,6 @@
 module top (
     input  logic        clk_27mhz,     // 27 MHz - pin 52
+    input  logic        reset_n,       // S1 integrado - pin 88
 
     // Teclado
     input  logic [3:0]  in_col,        // columnas (pull-up interno, reposo=1111)
@@ -17,7 +18,7 @@ module top (
         if (!(&rst_cnt))
             rst_cnt <= rst_cnt + 1;
     end
-    assign rst_n_int = &rst_cnt;
+    assign rst_n_int = (&rst_cnt) & reset_n;
 
     // Señales internas
     logic [3:0] cols_sync;
