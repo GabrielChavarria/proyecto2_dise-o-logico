@@ -1,4 +1,4 @@
-# Recursos FPGA
+# 6.1 Recursos FPGA
 
 ## Herramientas
 - **Síntesis**: Yosys 0.26+1

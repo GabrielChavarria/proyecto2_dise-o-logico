@@ -1,4 +1,4 @@
-# Diagrama General del Sistema
+# 1. Diagrama General del Sistema
 
 ## Diagrama de bloques completo
 

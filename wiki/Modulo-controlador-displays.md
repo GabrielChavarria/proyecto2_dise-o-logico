@@ -1,4 +1,4 @@
-# Módulo: controlador_displays.sv
+# 4.3 Módulo: controlador_displays.sv
 
 ## Función
 Multiplexa los 4 dígitos del display activando un cátodo a la vez cada 1 ms, creando la ilusión de que todos los dígitos están encendidos simultáneamente.

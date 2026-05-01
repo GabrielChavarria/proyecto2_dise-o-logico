@@ -1,4 +1,4 @@
-# Módulo: fsm_entrada_datos.sv
+# 2.5 Módulo: fsm_entrada_datos.sv
 
 ## Función
 Controla el flujo de ingreso de datos de la calculadora mediante una máquina de estados finitos de 4 estados.

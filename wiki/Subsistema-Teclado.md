@@ -1,4 +1,4 @@
-# Subsistema 1 — Lectura del Teclado Hexadecimal
+# 2. Subsistema 1 — Lectura del Teclado Hexadecimal
 
 ## Descripción
 Captura, sincroniza y decodifica las pulsaciones del teclado 4x4. Implementa una FSM que controla el ingreso secuencial de dos operandos.

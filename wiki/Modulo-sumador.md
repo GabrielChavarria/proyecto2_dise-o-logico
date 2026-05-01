@@ -1,4 +1,4 @@
-# Módulo: sumador.sv
+# 3.1 Módulo: sumador.sv
 
 ## Función
 Calcula la suma sin signo de dos operandos de 10 bits cuando recibe la señal de habilitación, produciendo un resultado de 11 bits.

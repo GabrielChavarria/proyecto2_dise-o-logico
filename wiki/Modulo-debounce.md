@@ -1,4 +1,4 @@
-# Módulo: debounce.sv
+# 2.2 Módulo: debounce.sv
 
 ## Función
 Elimina el rebote mecánico de las teclas del teclado. Solo acepta un cambio de señal si se mantiene estable durante 20ms consecutivos.

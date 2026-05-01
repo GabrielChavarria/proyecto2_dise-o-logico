@@ -1,4 +1,4 @@
-# Módulo: decodificador_tecla.sv
+# 2.4 Módulo: decodificador_tecla.sv
 
 ## Función
 Convierte el par fila-columna capturado por el barrido al dígito decimal correspondiente y genera señales de control para la FSM.

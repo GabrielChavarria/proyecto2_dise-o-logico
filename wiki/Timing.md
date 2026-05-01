@@ -1,4 +1,4 @@
-# Reporte de Timing
+# 6.2 Reporte de Timing
 
 ## Frecuencia de operación
 - **Requerida**: 27 MHz (período 37 ns)

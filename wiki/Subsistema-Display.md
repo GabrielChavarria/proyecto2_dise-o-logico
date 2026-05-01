@@ -1,4 +1,4 @@
-# Subsistema 3 — Display de 7 Segmentos
+# 4. Subsistema 3 — Display de 7 Segmentos
 
 ## Descripción
 Convierte el número a mostrar en formato BCD y lo despliega en el display de 4 dígitos mediante multiplexeo a 1 kHz.

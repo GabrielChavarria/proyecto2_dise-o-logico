@@ -1,4 +1,4 @@
-# Módulo: sincronizador.sv
+# 2.1 Módulo: sincronizador.sv
 
 ## Función
 Sincroniza señales externas del teclado al dominio del reloj interno de 27 MHz, eliminando la metaestabilidad mediante dos flip-flops en cascada.

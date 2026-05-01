@@ -1,4 +1,4 @@
-# Subsistema 2 — Suma Aritmética
+# 3. Subsistema 2 — Suma Aritmética
 
 ## Descripción
 Recibe los dos operandos almacenados por la FSM y calcula su suma sin signo cuando recibe la señal de habilitación.

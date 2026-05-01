@@ -1,4 +1,4 @@
-# Simulación del Debounce
+# 5.2 Simulación del Debounce
 
 ## Testbench: `tb_debounce.sv`
 

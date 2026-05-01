@@ -1,4 +1,4 @@
-# Módulo: barrido_teclado.sv
+# 2.3 Módulo: barrido_teclado.sv
 
 ## Función
 Escanea las 4 filas del teclado secuencialmente y detecta qué columna responde cuando una tecla es presionada. Instancia 4 módulos debounce internamente.

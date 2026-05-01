@@ -1,4 +1,4 @@
-# Módulo: divisor_frecuencia.sv
+# 4.1 Módulo: divisor_frecuencia.sv
 
 ## Función
 Divide el reloj de 27 MHz generando un pulso de habilitación a 1 kHz que usan los subsistemas de teclado y display.

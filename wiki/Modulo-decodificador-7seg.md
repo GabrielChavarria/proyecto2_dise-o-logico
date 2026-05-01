@@ -1,4 +1,4 @@
-# Módulo: decodificador_7seg.sv
+# 4.2 Módulo: decodificador_7seg.sv
 
 ## Función
 Convierte un dígito BCD (0-9) a las señales de los 7 segmentos del display. Lógica combinacional pura, sin reloj.

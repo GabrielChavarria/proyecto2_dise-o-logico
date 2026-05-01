@@ -1,4 +1,4 @@
-# Simulación del Display
+# 5.1 Simulación del Display
 
 ## Testbench: `tb_display.sv`
 
