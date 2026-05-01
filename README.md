@@ -59,7 +59,6 @@ Se requiere diseñar un circuito digital sincrónico capaz de capturar dos núme
 
 El sistema se divide en tres subsistemas interconectados que operan sincrónicamente bajo el reloj de 27 MHz:
 
-```
 ```mermaid
 flowchart TD
 
@@ -79,7 +78,7 @@ J --> K[Divisor de frecuencia]
 K --> L[Controlador de displays]
 
 L -->|segmentos + ánodos| M[Display físico]
-
+```
 ### Subsistema 1 — Lectura del teclado
 Captura y procesa las pulsaciones del teclado 4x4. Las señales físicas pasan por un sincronizador de 2 flip-flops para eliminar metaestabilidad, luego por un módulo de debounce que requiere 20ms de señal estable. El módulo de barrido escanea las 4 filas secuencialmente y detecta qué columna responde. El decodificador convierte el par fila-columna al dígito correspondiente. La FSM controla el flujo: ingreso del primer número → confirmación con A → ingreso del segundo número → ejecución de suma con B.
 
