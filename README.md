@@ -118,5 +118,26 @@ proyecto2_diseño-logico
 | in_col[2] | 68 | 7 | Columna 3 (3,6,9,#) |
 | in_col[3] | 69 | 8 | Columna 4 (A,B,C,D) |
 
-## 4. Modulos
+## 4. Módulos
+
+### Subsistema 1 — Lectura del Teclado Hexadecimal
+| # | Módulo | Wiki |
+|---|---|---|
+| 2.1 | `sincronizador.sv` | [Módulo Sincronizador](https://github.com/GabrielChavarria/proyecto2_dise-o-logico/wiki/Modulo-sincronizador) |
+| 2.2 | `debounce.sv` | [Módulo Debounce](https://github.com/GabrielChavarria/proyecto2_dise-o-logico/wiki/Modulo-debounce) |
+| 2.3 | `barrido_teclado.sv` | [Módulo Barrido Teclado](https://github.com/GabrielChavarria/proyecto2_dise-o-logico/wiki/Modulo-barrido-teclado) |
+| 2.4 | `decodificador_tecla.sv` | [Módulo Decodificador Tecla](https://github.com/GabrielChavarria/proyecto2_dise-o-logico/wiki/Modulo-decodificador-tecla) |
+| 2.5 | `fsm_entrada_datos.sv` | [Módulo FSM Entrada Datos](https://github.com/GabrielChavarria/proyecto2_dise-o-logico/wiki/Modulo-FSM-entrada-datos) |
+
+### Subsistema 2 — Suma Aritmética
+| # | Módulo | Wiki |
+|---|---|---|
+| 3.1 | `sumador.sv` | [Módulo Sumador](https://github.com/GabrielChavarria/proyecto2_dise-o-logico/wiki/Modulo-sumador) |
+
+### Subsistema 3 — Display de 7 Segmentos
+| # | Módulo | Wiki |
+|---|---|---|
+| 4.1 | `divisor_frecuencia.sv` | [Módulo Divisor Frecuencia](https://github.com/GabrielChavarria/proyecto2_dise-o-logico/wiki/Modulo-divisor-frecuencia) |
+| 4.2 | `decodificador_7seg.sv` | [Módulo Decodificador 7seg](https://github.com/GabrielChavarria/proyecto2_dise-o-logico/wiki/Modulo-decodificador-7seg) |
+| 4.3 | `controlador_displays.sv` | [Módulo Controlador Displays](https://github.com/GabrielChavarria/proyecto2_dise-o-logico/wiki/Modulo-controlador-displays) |
 
