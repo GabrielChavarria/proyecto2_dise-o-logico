@@ -306,7 +306,7 @@ proyecto2_diseño-logico
 | segmentos_out[5] | 39 | 10 | Segmento f |
 | segmentos_out[6] | 33 | 5 | Segmento g |
 
-### Teclado Grayhill 96BB2 (4x4)
+### Teclado
 | Señal | Pin FPGA | Terminal | Descripción |
 |---|---|---|---|
 | out_fil[0] | 51 | 1 | Fila 1 (1,2,3,A) |
