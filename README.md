@@ -14,29 +14,16 @@
 ## Abreviaturas y definiciones
 - **FPGA**: Field Programmable Gate Arrays
 - **HDL**: Hardware Description Language
-- **EDA**: Electronic Design Automation
-- **GPIO**: General Purpose Input/Output
-- **FSM**: Finite State Machine (Máquina de Estados Finitos)
-- **BCD**: Binary Coded Decimal
-- **RTL**: Register Transfer Level
-- **FF**: Flip-Flop
-- **LUT**: Look-Up Table
+
 
 ---
 ## Herramientas Utilizadas
 - **Descripción Hardware**: SystemVerilog
-- **Síntesis**: Yosys
-- **Place and Route**: nextpnr-gowin
-- **Generación de bitstream**: gowin_pack
-- **Programación FPGA**: openFPGALoader
-- **Simulación**: Icarus Verilog
-- **Verificación gráfica de señales**: GTKWave
 
 ---
 ## Referencias
 - [1] [Open Source FPGA Environment](https://github.com/DJosueMM/open_source_fpga_environment/wiki)
 - [2] [TangNano 9K Wiki](https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-9K/Nano-9K.html)
-- [3] Pong P. Chu. *FPGA prototyping by SystemVerilog examples*. Xilinx MicroBlaze MCS SoC Edition. Hoboken, NJ, USA: Wiley, 2018.
 
 ---
 
@@ -73,29 +60,25 @@ Se requiere diseñar un circuito digital sincrónico capaz de capturar dos núme
 El sistema se divide en tres subsistemas interconectados que operan sincrónicamente bajo el reloj de 27 MHz:
 
 ```
-Teclado físico
-     │
-     ▼
-[Subsistema 1: Lectura del teclado]
-sincronizador → debounce → barrido → decodificador → FSM
-                                                       │
-                                              operando_a, operando_b
-                                                       │
-                                                       ▼
-                                          [Subsistema 2: Suma]
-                                               sumador
-                                                       │
-                                                  resultado
-                                                       │
-                                                       ▼
-                                     [Subsistema 3: Display]
-                              divisor_freq → controlador_displays
-                                                       │
-                                               segmentos + ánodos
-                                                       │
-                                                       ▼
-                                              Display físico
-```
+```mermaid
+flowchart TD
+
+A[Teclado físico] --> B[Subsistema 1: Lectura del teclado]
+
+B --> C[Sincronizador]
+C --> D[Debounce]
+D --> E[Barrido]
+E --> F[Decodificador]
+F --> G[FSM]
+
+G -->|operando_a, operando_b| H[Subsistema 2: Suma]
+H --> I[Sumador]
+
+I -->|resultado| J[Subsistema 3: Display]
+J --> K[Divisor de frecuencia]
+K --> L[Controlador de displays]
+
+L -->|segmentos + ánodos| M[Display físico]
 
 ### Subsistema 1 — Lectura del teclado
 Captura y procesa las pulsaciones del teclado 4x4. Las señales físicas pasan por un sincronizador de 2 flip-flops para eliminar metaestabilidad, luego por un módulo de debounce que requiere 20ms de señal estable. El módulo de barrido escanea las 4 filas secuencialmente y detecta qué columna responde. El decodificador convierte el par fila-columna al dígito correspondiente. La FSM controla el flujo: ingreso del primer número → confirmación con A → ingreso del segundo número → ejecución de suma con B.
