@@ -1,6 +1,5 @@
 module top (
     input  logic        clk_27mhz,     // 27 MHz - pin 52
-    input  logic        reset_n,       // S1 integrado - pin 88
 
     // Teclado
     input  logic [3:0]  in_col,        // columnas (pull-up interno, reposo=1111)
@@ -11,14 +10,14 @@ module top (
     output logic [3:0]  anodos_out     // anodos_out[0]=D1 ... [3]=D4, activo en bajo
 );
 
-    // Reset interno: se activa al arrancar y tambien con S1
+    // Reset interno automatico al arrancar
     logic        rst_n_int;
     logic [3:0]  rst_cnt = 4'd0;
     always_ff @(posedge clk_27mhz) begin
         if (!(&rst_cnt))
             rst_cnt <= rst_cnt + 1;
     end
-    assign rst_n_int = (&rst_cnt) & reset_n;
+    assign rst_n_int = &rst_cnt;
 
     // Señales internas
     logic [3:0] cols_sync;

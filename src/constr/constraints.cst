@@ -53,6 +53,3 @@ IO_PORT "in_col[1]" IO_TYPE=LVCMOS33 PULL_MODE=UP;
 IO_LOC  "in_col[0]" 56;
 IO_PORT "in_col[0]" IO_TYPE=LVCMOS33 PULL_MODE=UP;
 
-// --- RESET: botón S1 integrado en TangNano ---
-IO_LOC  "reset_n" 88;
-IO_PORT "reset_n" IO_TYPE=LVCMOS33 PULL_MODE=UP;

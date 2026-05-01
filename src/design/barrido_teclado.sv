@@ -21,7 +21,7 @@ module barrido_teclado (
     // -------------------------------------------------------------------------
     logic [3:0] cols_db;
 
-    debounce #(.TICKS(40)) db_col0 (
+    debounce #(.TICKS(20)) db_col0 (
         .clk      (clk),
         .rst_n    (rst_n),
         .pulso    (pulso),
@@ -29,7 +29,7 @@ module barrido_teclado (
         .senal_out(cols_db[0])
     );
 
-    debounce #(.TICKS(40)) db_col1 (
+    debounce #(.TICKS(20)) db_col1 (
         .clk      (clk),
         .rst_n    (rst_n),
         .pulso    (pulso),
@@ -37,7 +37,7 @@ module barrido_teclado (
         .senal_out(cols_db[1])
     );
 
-    debounce #(.TICKS(40)) db_col2 (
+    debounce #(.TICKS(20)) db_col2 (
         .clk      (clk),
         .rst_n    (rst_n),
         .pulso    (pulso),
@@ -45,7 +45,7 @@ module barrido_teclado (
         .senal_out(cols_db[2])
     );
 
-    debounce #(.TICKS(40)) db_col3 (
+    debounce #(.TICKS(20)) db_col3 (
         .clk      (clk),
         .rst_n    (rst_n),
         .pulso    (pulso),
@@ -102,28 +102,39 @@ module barrido_teclado (
             captura_en <= pulso && (sub_cnt == PULSES_PER_ROW - 2);
     end
 
-   // tecla_liberada: se pone en 1 solo cuando todas las columnas
-    // vuelven a reposo (4'hF), indicando que soltaron la tecla
+    // tecla_liberada: requiere ver cols_db=4'hF por 25 pulsos consecutivos
+    // en la fila capturada para confirmar que la tecla fue soltada
     logic tecla_liberada;
+    logic [5:0] release_cnt;
 
     always_ff @(posedge clk or negedge rst_n) begin
         if (!rst_n) begin
             fila_cap       <= 4'hF;
             col_cap        <= 4'hF;
             tecla_valida   <= 1'b0;
-            tecla_liberada <= 1'b1;  // al inicio no hay tecla presionada
+            tecla_liberada <= 1'b1;
+            release_cnt    <= 6'd0;
         end else begin
             tecla_valida <= 1'b0;
 
-            // Detectar liberación: todas las columnas en reposo
-            if (cols_db == 4'hF)
+            // Contar pulsos donde la fila capturada esta activa y cols en reposo
+            if (pulso) begin
+                if ((filas == fila_cap) && (cols_db == 4'hF))
+                    release_cnt <= release_cnt + 1;
+                else
+                    release_cnt <= 6'd0;
+            end
+
+            // Solo liberar despues de 25 pulsos estables (debounce completado)
+            if (release_cnt >= 6'd25)
                 tecla_liberada <= 1'b1;
 
             if (captura_en && (cols_db != 4'hF) && tecla_liberada) begin
                 fila_cap       <= filas;
                 col_cap        <= cols_db;
                 tecla_valida   <= 1'b1;
-                tecla_liberada <= 1'b0;  // bloquea hasta que suelten
+                tecla_liberada <= 1'b0;
+                release_cnt    <= 6'd0;
             end
         end
     end
