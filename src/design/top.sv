@@ -64,7 +64,7 @@ module top (
     // Barrido del teclado
     barrido_teclado barrido (
         .clk          (clk_27mhz),
-        .rst_n        (reset_n),
+        .rst_n        (rst_n_int),
         .pulso        (pulso_tick),
         .cols_sync    (cols_sync),
         .filas        (out_fil),
@@ -87,7 +87,7 @@ module top (
     // FSM de entrada de datos
     fsm_entrada_datos fsm (
         .clk          (clk_27mhz),
-        .rst_n        (reset_n),
+        .rst_n        (rst_n_int),
         .tecla_valida (tecla_valida),
         .digito       (digito),
         .es_numero    (es_numero),
@@ -103,7 +103,7 @@ module top (
     // Sumador
     sumador sum (
         .clk         (clk_27mhz),
-        .rst_n       (reset_n),
+        .rst_n       (rst_n_int),
         .operando_a  (operando_a),
         .operando_b  (operando_b),
         .suma_valida (suma_valida),
@@ -130,7 +130,7 @@ module top (
     // Controlador del display
     controlador_displays ctrl_disp (
         .clk       (clk_27mhz),
-        .rst_n     (reset_n),
+        .rst_n     (rst_n_int),
         .pulso     (pulso_tick),
         .numero    (numero_bcd),
         .segmentos (segs_internos),
