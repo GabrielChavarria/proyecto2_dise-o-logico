@@ -121,7 +121,7 @@ proyecto2_diseño-logico
 ## 4. Módulos
 
 ### Subsistema 1 — Lectura del Teclado Hexadecimal
-- 2.1 [Módulo Sincronizador](https://github.com/GabrielChavarria/proyecto2_dise-o-logico/wiki/Modulo-sincronizador)
+- [1.2 Modulo sincronizador](https://github.com/GabrielChavarria/proyecto2_dise-o-logico/wiki/Modulo-sincronizador)
 - 2.2 [Módulo Debounce](https://github.com/GabrielChavarria/proyecto2_dise-o-logico/wiki/Modulo-debounce)
 - 2.3 [Módulo Barrido Teclado](https://github.com/GabrielChavarria/proyecto2_dise-o-logico/wiki/Modulo-barrido-teclado)
 - 2.4 [Módulo Decodificador Tecla](https://github.com/GabrielChavarria/proyecto2_dise-o-logico/wiki/Modulo-decodificador-tecla)
