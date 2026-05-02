@@ -128,10 +128,10 @@ proyecto2_diseño-logico
 - 1.6 [Módulo FSM Entrada Datos](https://github.com/GabrielChavarria/proyecto2_dise-o-logico/wiki/1.6-Modulo-FSM-entrada-datos)
 
 ### Subsistema 2 — Suma Aritmética
-- 2. [Módulo Sumador](https://github.com/GabrielChavarria/proyecto2_dise-o-logico/wiki/2.-Modulo-sumador)
+- 2\. [Módulo Sumador](https://github.com/GabrielChavarria/proyecto2_dise-o-logico/wiki/2.-Modulo-sumador)
 
 ### Subsistema 3 — Display de 7 Segmentos
-- 3. [Módulo Divisor Frecuencia](https://github.com/GabrielChavarria/proyecto2_dise-o-logico/wiki/3.-Modulo-divisor-frecuencia)
+- 3\. [Módulo Divisor Frecuencia](https://github.com/GabrielChavarria/proyecto2_dise-o-logico/wiki/3.-Modulo-divisor-frecuencia)
 - 3.1 [Módulo Decodificador 7seg](https://github.com/GabrielChavarria/proyecto2_dise-o-logico/wiki/3.1-Modulo-decodificador-7seg)
 - 3.2 [Módulo Controlador Displays](https://github.com/GabrielChavarria/proyecto2_dise-o-logico/wiki/3.2-Modulo-controlador-displays)
 
