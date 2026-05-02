@@ -121,17 +121,17 @@ proyecto2_diseño-logico
 ## 4. Módulos
 
 ### Subsistema 1 — Lectura del Teclado Hexadecimal
-- 2.1 [Módulo Sincronizador](https://github.com/GabrielChavarria/proyecto2_dise-o-logico/wiki/Modulo-sincronizador)
-- 2.2 [Módulo Debounce](https://github.com/GabrielChavarria/proyecto2_dise-o-logico/wiki/Modulo-debounce)
-- 2.3 [Módulo Barrido Teclado](https://github.com/GabrielChavarria/proyecto2_dise-o-logico/wiki/Modulo-barrido-teclado)
-- 2.4 [Módulo Decodificador Tecla](https://github.com/GabrielChavarria/proyecto2_dise-o-logico/wiki/Modulo-decodificador-tecla)
-- 2.5 [Módulo FSM Entrada Datos](https://github.com/GabrielChavarria/proyecto2_dise-o-logico/wiki/Modulo-FSM-entrada-datos)
+- 1.2 [Módulo Sincronizador](https://github.com/GabrielChavarria/proyecto2_dise-o-logico/wiki/1.2-Modulo-sincronizador)
+- 1.3 [Módulo Debounce](https://github.com/GabrielChavarria/proyecto2_dise-o-logico/wiki/1.3-Modulo-debounce)
+- 1.4 [Módulo Barrido Teclado](https://github.com/GabrielChavarria/proyecto2_dise-o-logico/wiki/1.4-Modulo-barrido-teclado)
+- 1.5 [Módulo Decodificador Tecla](https://github.com/GabrielChavarria/proyecto2_dise-o-logico/wiki/1.5-Modulo-decodificador-tecla)
+- 1.6 [Módulo FSM Entrada Datos](https://github.com/GabrielChavarria/proyecto2_dise-o-logico/wiki/1.6-Modulo-FSM-entrada-datos)
 
 ### Subsistema 2 — Suma Aritmética
-- 3.1 [Módulo Sumador](https://github.com/GabrielChavarria/proyecto2_dise-o-logico/wiki/Modulo-sumador)
+- 2. [Módulo Sumador](https://github.com/GabrielChavarria/proyecto2_dise-o-logico/wiki/2.-Modulo-sumador)
 
 ### Subsistema 3 — Display de 7 Segmentos
-- 4.1 [Módulo Divisor Frecuencia](https://github.com/GabrielChavarria/proyecto2_dise-o-logico/wiki/Modulo-divisor-frecuencia)
-- 4.2 [Módulo Decodificador 7seg](https://github.com/GabrielChavarria/proyecto2_dise-o-logico/wiki/Modulo-decodificador-7seg)
-- 4.3 [Módulo Controlador Displays](https://github.com/GabrielChavarria/proyecto2_dise-o-logico/wiki/Modulo-controlador-displays)
+- 3. [Módulo Divisor Frecuencia](https://github.com/GabrielChavarria/proyecto2_dise-o-logico/wiki/3.-Modulo-divisor-frecuencia)
+- 3.1 [Módulo Decodificador 7seg](https://github.com/GabrielChavarria/proyecto2_dise-o-logico/wiki/3.1-Modulo-decodificador-7seg)
+- 3.2 [Módulo Controlador Displays](https://github.com/GabrielChavarria/proyecto2_dise-o-logico/wiki/3.2-Modulo-controlador-displays)
 
