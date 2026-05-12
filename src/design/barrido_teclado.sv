@@ -1,9 +1,3 @@
-// =============================================================================
-// barrido_teclado.sv
-// Escanea filas (salidas) y lee columnas (entradas con pull-up).
-// Instancia un módulo debounce por cada columna para eliminar rebotes.
-// =============================================================================
-
 module barrido_teclado (
     input  logic       clk,
     input  logic       rst_n,
@@ -15,11 +9,10 @@ module barrido_teclado (
     output logic       tecla_valida  // pulso de 1 ciclo: nueva tecla detectada
 );
 
-    // -------------------------------------------------------------------------
-    // Anti-rebote: una instancia de debounce por cada columna
-    // cols_sync → [debounce x4] → cols_db (señal limpia)
-    // -------------------------------------------------------------------------
+       // Señales internas
     logic [3:0] cols_db;
+    logic       tecla_liberada;
+
 
     debounce #(.TICKS(20)) db_col0 (
         .clk      (clk),
@@ -53,15 +46,7 @@ module barrido_teclado (
         .senal_out(cols_db[3])
     );
 
-    // -------------------------------------------------------------------------
-    // Contador de barrido: activa una fila a la vez en activo bajo
-    // Cada fila se mantiene activa 25 pulsos (25 ms) para que el debouncer
-    // tenga tiempo suficiente de estabilizar (necesita TICKS=20 pulsos).
-    //   estado 0 → filas = 1110  (out_fil[0] → fila 1,2,3,A)
-    //   estado 1 → filas = 1101  (out_fil[1] → fila 4,5,6,B)
-    //   estado 2 → filas = 1011  (out_fil[2] → fila 7,8,9,C)
-    //   estado 3 → filas = 0111  (out_fil[3] → fila *,0,#,D)
-    // -------------------------------------------------------------------------
+    
     logic [1:0] estado_fil;
     localparam PULSES_PER_ROW = 50;
     logic [5:0] sub_cnt;
@@ -89,10 +74,7 @@ module barrido_teclado (
         endcase
     end
 
-    // -------------------------------------------------------------------------
-    // Captura: se dispara en sub_cnt==23, cuando el debouncer ya tiene
-    // 20+ pulsos para estabilizar y antes de que la fila avance (sub_cnt==24).
-    // -------------------------------------------------------------------------
+    
     logic captura_en;
 
     always_ff @(posedge clk or negedge rst_n) begin
@@ -102,9 +84,7 @@ module barrido_teclado (
             captura_en <= pulso && (sub_cnt == PULSES_PER_ROW - 2);
     end
 
-    // tecla_liberada: requiere ver cols_db=4'hF por 25 pulsos consecutivos
-    // en la fila capturada para confirmar que la tecla fue soltada
-    logic tecla_liberada;
+    
     logic [5:0] release_cnt;
 
     always_ff @(posedge clk or negedge rst_n) begin

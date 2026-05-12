@@ -1,9 +1,9 @@
-module decodificador_7seg (
-    input  logic [3:0] bcd,
+module decodificador_7seg (// convierte un nuero binario/BCD en señales para un display de 7 segmentos
+    input  logic [3:0] bcd,//Representa un nuero decimal en "Binary Coded Decimal
     output logic [6:0] segmentos  // {g, f, e, d, c, b, a}
 );
 
-    always_comb begin
+    always_comb begin// indica logica combinaiconal 
         case (bcd)
             4'd0: segmentos = 7'b0111111;
             4'd1: segmentos = 7'b0000110;

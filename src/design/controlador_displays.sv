@@ -41,7 +41,7 @@ module controlador_displays (
 
     // instancia del decodificador
     decodificador_7seg dec (
-        .bcd      (bcd_actual),
+        .bcd      (bcd_actual),//
         .segmentos(segmentos)
     );
 

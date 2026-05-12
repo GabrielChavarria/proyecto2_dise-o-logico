@@ -1,20 +1,24 @@
 
+//convierte señales del taclado en comandos utilies 
+// recibe fila detctada
+//columna detectada
+//y produce, numero, ejecutar, limpiar, confirmar 
 module decodificador_tecla (
-    input  logic [3:0] fila_cap,
-    input  logic [3:0] col_cap,
-    output logic [3:0] digito,
-    output logic       es_numero,
+    input  logic [3:0] fila_cap,//fila calturada del teclado
+    input  logic [3:0] col_cap,//columana detectada del teclado
+    output logic [3:0] digito,// numero detectado
+    output logic       es_numero,// indica si la tecla es numerica 
     output logic       confirmar_a,  // A = "+"
     output logic       ejecutar,     // B = "="
     output logic       limpiar       // D = reset
 );
     logic [7:0] tecla;
-    assign tecla = {fila_cap, col_cap};
+    assign tecla = {fila_cap, col_cap}; // concatancion, forma un patron de 8 bits de forma [fila][columna]
  
-    always_comb begin
-        digito      = 4'd0;
-        es_numero   = 1'b0;
-        confirmar_a = 1'b0;
+    always_comb begin// indica que usa logica combinacional, o sea sin flip-flops
+        digito      = 4'd0;// su defecto es 0
+        es_numero   = 1'b0;//se asume que no es numero
+        confirmar_a = 1'b0;// todos los comandos apagados 
         ejecutar    = 1'b0;
         limpiar     = 1'b0;
  

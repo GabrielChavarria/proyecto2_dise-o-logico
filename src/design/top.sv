@@ -88,8 +88,8 @@ module top (
         .fila_cap    (fila_cap),// fila de la tecla presionada 
         .col_cap     (col_cap),//// columna de la tecla presionada
         .digito      (digito),//valor numerico decodificado
-        .es_numero   (es_numero)//indica si la tecla es un numero
-        .confirmar_a (confirmar_a)// se activa cuando detecta que se presiono la tecla A
+        .es_numero   (es_numero),//indica si la tecla es un numero
+        .confirmar_a (confirmar_a),// se activa cuando detecta que se presiono la tecla A
 
         .ejecutar    (ejecutar),// ejecuta la suma, cuando detecta que se presiono la tecla B
         .limpiar     (limpiar)// al detectar que se presiono la tecla  D, reinicia la calculadora
